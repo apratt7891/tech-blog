@@ -3,14 +3,12 @@ main {
   }
   
   body {
-    background-color: black;
+    background-color: aquamarine;
   }
   
   header {
-    background-color: black;
+    background-color: blanchedalmond;
     padding-bottom: 2%;
-    border-bottom: solid;
-    border-color: white;
     border: solid bottom white;
   }
   
