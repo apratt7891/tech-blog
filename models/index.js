@@ -9,4 +9,4 @@ const Comment = require('./Comment');
 
 
 
-module.exports = { User };
+module.exports = { User, Post, Comment };
