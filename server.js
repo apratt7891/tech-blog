@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const serverRoutes = require('./controllers');
+
 const helpers = require('./utils/helpers');
 
 const app = express();
@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Activates routes
-app.use(serverRoutes);
+app.use(require('./controllers/'));
 
 // Getting connected to db and server
 sequelize.sync({ force: false }).then(() => {

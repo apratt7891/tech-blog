@@ -2,13 +2,12 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
-// create our User model
 class User extends Model {
-
     checkPassword(login) {
         return bcrypt.compareSync(login, this.password);
     }
 }
+
 User.init(
     {
         id: {
@@ -32,11 +31,11 @@ User.init(
     {
         hooks: {
             async beforeCreate(newUserData) {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                newUserData.password = await bcrypt.hash(newUserData.password, 12);
                 return newUserData
             },
             async beforeUpdate(updatedUser) {
-                updatedUser.password = await bcrypt.hash(updatedUser.password, 10);
+                updatedUser.password = await bcrypt.hash(updatedUser.password, 12);
                 return updatedUser;
             }
         },
@@ -47,8 +46,5 @@ User.init(
         modelName: 'user'
     }
 );
-
-
-
 
 module.exports = User;
