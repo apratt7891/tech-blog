@@ -70,5 +70,3 @@ router.get('/edit/:id', auth, (req, res) => {
         res.status(500).json(err);
     });
 });
-
-module.exports = router;
