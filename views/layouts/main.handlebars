@@ -1,35 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Tech Blog</title>
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/stylesheets/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Tech Blog</title>
 </head>
+<body>
+    <header>
+        <nav>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col" id="navigation">
+                        <div class="row">
+                            <div class="home">
+                                <a href="/">Home</a>
+                            </div>
+                            <div class="dashboard">
+                                {{#if loggedIn }}
+                                <a href="/dashboard">Dashboard</a>
+                                {{else}}
+                                <a href="/login">Dashboard</a>
+                                {{/if}}
+                            </div>
+                            {{#if loggedIn }}
+                            <div class="logout">
+                                <button id="logout" class="btnLogout">Logout</button>
+                            </div>
+                            {{else}}
+                            <a href="/login">Login</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <h1 class="jumbo-tron">The Tech Blog</h1>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<body class="flex-column min-100-vh">
-  <nav class="navbar">
-    <ul>
-      <li class="li-inline nav-item"><a href="/">Home</a></li>
-      <li class="li-inline nav-item"><a href="/dashboard">Dashboard</a></li>
-      <li class="li-inline nav-item"><a href="/login">Login</a></li>
-      <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
-    </ul>
-  </nav>
-  <header class="hero">
-    <h1 class="app-title"><a href="/">The Tech Blog</a></h1>
-  </header>
-
-  <main class="col-auto">
-    {{{body}}}
-  </main>
-
-  <footer class="flex-row justify-center">
-    &copy; The Tech Blog Folks
-  </footer>
-</body>
-
-</html>
+    <main>
+       {{{body}}} 
+    </main>
+{{#if loggedIn }}
 <script src="/javascript/logout.js"></script>
+{{/if}}
+</body>
+</html>
