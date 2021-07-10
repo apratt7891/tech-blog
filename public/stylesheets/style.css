@@ -7,7 +7,9 @@ main {
   }
   
   header {
-    background-color: blanchedalmond;
+    background-color: black;
+    color: pink;
+    text-align: center;
   }
   
   .home {
@@ -33,7 +35,7 @@ main {
   }
   
   a:hover {
-    color: yellow;
+    color: orange;
   }
   
   .jumbo-tron {
